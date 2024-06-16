@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Удалить оценку{% endblock %}
+{% block content %}
+<h1>Удалить оценку</h1>
+<p>Вы уверены, что хотите удалить эту оценку?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Удалить</button>
+  <a href="{% url 'grade_list' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

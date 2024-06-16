@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Лучшие студенты{% endblock %}
+{% block content %}
+<h1>Лучшие студенты</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Студент</th>
+      <th>Средний балл</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students_avg %}
+    <tr>
+      <td>{{ student.student__name }}</td>
+      <td>{{ student.average_grade }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Средний балл по предметам{% endblock %}
+{% block content %}
+<h1>Средний балл по предметам</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Предмет</th>
+      <th>Средний балл</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for subject in subjects_avg %}
+    <tr>
+      <td>{{ subject.subject__name }}</td>
+      <td>{{ subject.average_grade }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
