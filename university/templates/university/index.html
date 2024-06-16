@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Система учета успеваемости</title>
+</head>
+<body>
+<h1>Добро пожаловать в систему учета успеваемости</h1>
+<ul>
+    <li><a href="{% url 'students' %}">Список студентов</a></li>
+    <li><a href="{% url 'subjects' %}">Список предметов</a></li>
+    <li><a href="{% url 'grades' %}">Список оценок</a></li>
+    <li><a href="{% url 'best_students' %}">Лучшие студенты</a></li>
+    <li><a href="{% url 'worst_students' %}">Худшие студенты</a></li>
+    <li><a href="{% url 'subject_average' %}">Средний балл по предметам</a></li>
+</ul>
+</body>
+</html>
