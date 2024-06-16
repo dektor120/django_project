@@ -12,10 +12,19 @@ class SubjectForm(forms.ModelForm):
         fields = ['name']
 
 class GradeForm(forms.ModelForm):
+    GRADE_CHOICES = [(i, i) for i in range(1, 6)]
+    grade = forms.ChoiceField(
+        choices=GRADE_CHOICES,
+        label='Оценка'
+    )
+
     class Meta:
         model = Grade
         fields = ['student', 'subject', 'grade']
-
+        labels = {
+            'student': ('Студент'),
+            'subject': ('Предмет'),
+        }
 
 class GradeFilterForm(forms.Form):
     student = forms.ModelChoiceField(
