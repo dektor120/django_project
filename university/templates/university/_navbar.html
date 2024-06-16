@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light-beige">
+  <a class="navbar-brand" href="{% url 'index' %}">Система учета успеваемости</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'student_list' %}">Студенты</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'subject_list' %}">Предметы</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'grade_list' %}">Оценки</a>
+    </li>
+
+  </ul>
+</nav>
