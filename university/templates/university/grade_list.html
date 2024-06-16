@@ -2,28 +2,50 @@
 {% block title %}Список оценок{% endblock %}
 {% block content %}
 <h1>Список оценок</h1>
-<a href="{% url 'grade_create' %}" class="btn btn-primary">Создать оценку</a>
+
+    <a href="{% url 'grade_create' %}" class="btn btn-primary mb-3">Добавить оценку</a>
+
+<form method="get">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">{{ form.student.label_tag }}{{ form.student }}</div>
+        <div class="col-md-4 mb-3">{{ form.subject.label_tag }}{{ form.subject }}</div>
+        <div class="col-md-4 mb-3">
+            <button type="submit" class="btn btn-primary">Фильтр</button>
+        </div>
+    </div>
+</form>
+
 <table class="table">
-  <thead>
+    <thead>
     <tr>
-      <th>Студент</th>
-      <th>Предмет</th>
-      <th>Оценка</th>
-      <th>Действия</th>
+        <th>
+            <a href="?order_by={% if order_by == 'student__name' %}-{% endif %}student__name">
+                Студент
+                {% if order_by == 'student__name' %}▲{% elif order_by == '-student__name' %}▼{% endif %}
+            </a>
+        </th>
+        <th>
+            <a href="?order_by={% if order_by == 'subject__name' %}-{% endif %}subject__name">
+                Предмет
+                {% if order_by == 'subject__name' %}▲{% elif order_by == '-subject__name' %}▼{% endif %}
+            </a>
+        </th>
+        <th>Оценка</th>
+        <th>Действия</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     {% for grade in grades %}
     <tr>
-      <td>{{ grade.student.name }}</td>
-      <td>{{ grade.subject.name }}</td>
-      <td>{{ grade.grade }}</td>
-      <td>
-        <a href="{% url 'grade_update' grade.pk %}" class="btn btn-warning">Редактировать</a>
-        <a href="{% url 'grade_delete' grade.pk %}" class="btn btn-danger">Удалить</a>
-      </td>
+        <td>{{ grade.student.name }}</td>
+        <td>{{ grade.subject.name }}</td>
+        <td>{{ grade.grade }}</td>
+        <td>
+            <a href="{% url 'grade_update' grade.pk %}" class="btn btn-warning">Редактировать</a>
+            <a href="{% url 'grade_delete' grade.pk %}" class="btn btn-danger">Удалить</a>
+        </td>
     </tr>
     {% endfor %}
-  </tbody>
+    </tbody>
 </table>
 {% endblock %}

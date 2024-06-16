@@ -13,7 +13,7 @@
     {% for student in students_avg %}
     <tr>
       <td>{{ student.student__name }}</td>
-      <td>{{ student.average_grade }}</td>
+      <td>{{ student.average_grade|floatformat:2 }}</td>
     </tr>
     {% endfor %}
   </tbody>

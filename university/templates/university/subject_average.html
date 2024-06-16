@@ -13,8 +13,8 @@
     {% for subject in subjects_avg %}
     <tr>
       <td>{{ subject.subject__name }}</td>
-      <td>{{ subject.average_grade }}</td>
-    </tr>
+      <td>{{ subject.average_grade|floatformat:2 }}</td>
+        </tr>
     {% endfor %}
   </tbody>
 </table>
