@@ -14,7 +14,7 @@
 1. **Клонируйте репозиторий:**
 
    ```bash
-   https://github.com/dektor120/django_project.git
+   git clone https://github.com/dektor120/django_project.git
    ```
 
 2. **Создайте виртуальное окружение:**
